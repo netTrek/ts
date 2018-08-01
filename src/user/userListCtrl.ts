@@ -4,6 +4,7 @@
  */
 import { User } from './user';
 import { UserItemRenderer } from './userItemRenderer';
+import { myDecorator } from '../utils/myDecorator';
 
 export class UserListCtrl {
   get selectedUser (): UserItemRenderer {
@@ -28,6 +29,7 @@ export class UserListCtrl {
                 private itemRenderClass ) {
   }
 
+  @myDecorator()
   renderIn ( elem: HTMLElement ): HTMLElement { //apendChild HtmlElement
     const temp   = document.querySelector( `template#${this.tempId}`) as HTMLTemplateElement;
     const target = temp.content.cloneNode( true ) as HTMLElement;
