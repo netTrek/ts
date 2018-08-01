@@ -30,9 +30,9 @@ export class UserListCtrl {
 
   renderIn ( elem: HTMLElement ): HTMLElement { //apendChild HtmlElement
     const temp   = document.querySelector( `template#${this.tempId}`) as HTMLTemplateElement;
-    this._target = temp.content.cloneNode( true ) as HTMLElement;
-
-    const ul = this._target.querySelector( 'ul' );
+    const target = temp.content.cloneNode( true ) as HTMLElement;
+    this._target = target.querySelector( 'section' );
+    const ul = target.querySelector( 'ul' );
 
     this.dataProvider.forEach( (value, index, array) => {
       const item = new this.itemRenderClass (
