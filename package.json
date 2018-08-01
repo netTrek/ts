@@ -6,11 +6,13 @@
   "scripts": {
     "start": "webpack-serve --config ./webpack.config.js --reload true",
     "build": "webpack --watch",
+    "start:rest-api":"json-server --watch mock/db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "json-server": "^0.14.0",
     "ts-loader": "^4.4.2",
     "typescript": "^2.9.2",
     "webpack": "^4.16.3",

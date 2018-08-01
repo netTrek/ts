@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstname": "saban",
+      "lastname": "ünlü",
+      "birthday": "1973-11-04"
+    },
+    {
+      "id": 2,
+      "firstname": "peter",
+      "lastname": "müller",
+      "birthday": "1973-11-04"
+    },
+    {
+      "id": 3,
+      "firstname": "franz",
+      "lastname": "maier",
+      "birthday": "1973-11-04"
+    }
+  ]
+}
