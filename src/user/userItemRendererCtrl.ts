@@ -31,19 +31,18 @@ export class UserItemRendererCtrl implements UserItemRenderer {
 
   renderIn ( elem: HTMLElement ): HTMLElement { //apendChild HtmlElement
     const temp   = document.querySelector( `template#${this.tempId}`) as HTMLTemplateElement;
-    this._target = temp.content.cloneNode( true ) as HTMLElement;
-    const li = this._target.querySelector('li');
-    li.innerText = `${this.user.firstname} ${this.user.lastname}`;
+    const target = temp.content.cloneNode( true ) as HTMLElement;
+    this._target = target.querySelector('li');
+    this._target.innerText = `${this.user.firstname} ${this.user.lastname}`;
 
-    li.addEventListener( 'click', () => {
-      this.target.dispatchEvent(
+    this._target.addEventListener( 'click', () => {
+      this._target.dispatchEvent(
         new CustomEvent( 'selectedUser', {
           detail: this
         })
       )
     });
     elem.appendChild( this._target );
-    this._target = li;
     return this._target;
   }
 
