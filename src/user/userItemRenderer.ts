@@ -7,6 +7,7 @@ import { User } from './user';
 
 export interface UserItemRenderer {
 
+  selected: boolean;
   user: User;
   target: HTMLElement;
   renderIn ( elem: HTMLElement ): HTMLElement;

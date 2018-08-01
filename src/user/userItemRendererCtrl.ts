@@ -6,11 +6,24 @@ import { User } from './user';
 import { UserItemRenderer } from './userItemRenderer';
 
 export class UserItemRendererCtrl implements UserItemRenderer {
+  get selected (): boolean {
+    return this._selected;
+  }
+
+  set selected ( value: boolean ) {
+    this._selected = value;
+    if ( value ) {
+      this.target.style.color = 'red';
+    } else {
+      this.target.style.color = null;
+    }
+  }
 
   get target (): HTMLElement {
     return this._target;
   }
   private _target: HTMLElement;
+  private _selected: boolean;
 
   constructor ( private tempId,
                 public user: User,
@@ -30,6 +43,9 @@ export class UserItemRendererCtrl implements UserItemRenderer {
       )
     });
     elem.appendChild( this._target );
+    this._target = li;
     return this._target;
   }
+
+
 }

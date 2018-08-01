@@ -12,6 +12,7 @@ export class UserListCtrl {
 
   set selectedUser ( value: UserItemRenderer ) {
     this._selectedUser = value;
+    this.updateUserSelection ();
   }
 
   get target (): HTMLElement {
@@ -47,9 +48,15 @@ export class UserListCtrl {
   }
 
   private addItem ( item: UserItemRenderer ) {
-    item.target.addEventListener( '_selectedUser', ( evt: CustomEvent ) => {
-      this._selectedUser = evt.detail as UserItemRenderer;
+    item.target.addEventListener( 'selectedUser', ( evt: CustomEvent ) => {
+      this.selectedUser = evt.detail  as UserItemRenderer;
     } );
     this.items.push( item );
+  }
+
+  private updateUserSelection () {
+    this.items.forEach( value => {
+      value.selected = this.selectedUser === value;
+    });
   }
 }
